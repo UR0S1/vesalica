@@ -62,15 +62,16 @@ function novGameState(slovo){
     }
     else {
       let i = 0;
-      --n;
-      if(n == 0)
-        setTimeout(win, 800);
+      
       i = rec.indexOf(slovo, i);
       while(i != -1 && i < rec.length){
+        --n;
         document.getElementById(`slovo${i}`).innerHTML = slovo;
         document.getElementById(slovo).style.backgroundColor = '#17c428';
         i = rec.indexOf(slovo, i + 1);
       }
+      if(n == 0)
+        setTimeout(win, 800);
     }
 
   }
@@ -142,14 +143,16 @@ function win(){
 function hint(){
   slovo = rec[randomNumber(rec.length)];
   let i = 0;
-  --n;
+  
+  
+  i = rec.indexOf(slovo, i);
+  while(i != -1 && i < rec.length){
+    --n;
+    document.getElementById(`slovo${i}`).innerHTML = slovo;
+    document.getElementById(slovo).style.backgroundColor = '#17c428';
+    i = rec.indexOf(slovo, i + 1);
+  }
   if(n == 0)
     setTimeout(win, 800);
-    i = rec.indexOf(slovo, i);
-    while(i != -1 && i < rec.length){
-      document.getElementById(`slovo${i}`).innerHTML = slovo;
-      document.getElementById(slovo).style.backgroundColor = '#17c428';
-      i = rec.indexOf(slovo, i + 1);
-    }
 }
 

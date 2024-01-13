@@ -116,4 +116,24 @@ function restartGame(){
   open('index.html','_self');
 }
 
+function win(){
+  document.body.innerHTML = '';
+  var GameOver = document.createElement('h1');
+  GameOver.innerHTML = 'Браво!<br>Нисте ме обесили :)';
+
+  var box = document.createElement('div');
+  box.id = 'restartDiv';
+
+  var dugme = document.createElement('button');
+  dugme.innerHTML = "Играј поново";
+  dugme.onclick = function() {
+    open('index.html', '_self'); 
+   };
+  
+  document.body.appendChild(GameOver);
+  document.body.appendChild(box);
+  document.getElementById('restartDiv').appendChild(dugme);
+}
+
+
 

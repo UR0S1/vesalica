@@ -1,5 +1,5 @@
 var rec;
-
+var n;
 function setup(){
   generateKeyboard();
   generisiCrte();
@@ -40,6 +40,7 @@ function generisiRec(){
 
 function generisiCrte(){
   rec = generisiRec();
+  n = rec.length;
   var box = document.getElementById('word-box');
   for(var i = 0; i < rec.length; i++){
     var letter = document.createElement('div');
@@ -61,6 +62,9 @@ function novGameState(slovo){
     }
     else {
       let i = 0;
+      --n;
+      if(n == 0)
+        win();
       i = rec.indexOf(slovo, i);
       while(i != -1 && i < rec.length){
         document.getElementById(`slovo${i}`).innerHTML = slovo;

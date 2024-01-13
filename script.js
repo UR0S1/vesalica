@@ -141,9 +141,9 @@ function win(){
 }
 
 function hint(){
+  document.getElementById('hint').disabled=true;
   slovo = rec[randomNumber(rec.length)];
   let i = 0;
-  
   
   i = rec.indexOf(slovo, i);
   while(i != -1 && i < rec.length){

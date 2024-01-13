@@ -64,7 +64,7 @@ function novGameState(slovo){
       let i = 0;
       --n;
       if(n == 0)
-        win();
+        setTimeout(win, 800);
       i = rec.indexOf(slovo, i);
       while(i != -1 && i < rec.length){
         document.getElementById(`slovo${i}`).innerHTML = slovo;
@@ -139,5 +139,17 @@ function win(){
   document.getElementById('restartDiv').appendChild(dugme);
 }
 
-
+function hint(){
+  slovo = rec[randomNumber(rec.length)];
+  let i = 0;
+  --n;
+  if(n == 0)
+    setTimeout(win, 800);
+    i = rec.indexOf(slovo, i);
+    while(i != -1 && i < rec.length){
+      document.getElementById(`slovo${i}`).innerHTML = slovo;
+      document.getElementById(slovo).style.backgroundColor = '#17c428';
+      i = rec.indexOf(slovo, i + 1);
+    }
+}
 
